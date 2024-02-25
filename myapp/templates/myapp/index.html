@@ -1,1 +1,31 @@
-I
+{% extends './base.html' %}
+<!-- ./base.htmlじゃないとだめ -->
+{% load static %}
+<!-- この文章いる -->
+{% block extra_style %}
+<link rel="stylesheet" type="text/css" href="{% static 'myapp/css/index.css' %}" />
+{% endblock %}
+<!-- ここで独自のCSSを読み込む -->
+{% block header-title %}
+<h3>こちらindex.htmlです</h3>
+{% endblock %}
+{% block content %}
+<div class="main">
+    <div class="main-container">
+        <div class="main-container__item">
+            <a href="{% url 'login' %}" class="main-item__link">
+                <span class="main-item__text">ログイン</span>
+            </a>
+        </div>
+        <!-- a hrefの中には名前を入れる、login_viewにする -->
+        <div class="main-container__item">
+            <a href="{% url 'signup' %}" class="main-item__link">
+                <span class="main-item__text">会員登録</span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}
+<!-- ここに内容を書く -->
